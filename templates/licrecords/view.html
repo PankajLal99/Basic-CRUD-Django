@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delete Page</title>
+</head>
+<body>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Cutomer Name</th>
+                <th>Phone Number</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for c in customer %}
+            <tr>
+                <td scope="row">{{c.name}}</td>
+                <td>{{c.phone}}</td>
+                <td>
+                    <a class="btn btn-primary" href="{% url 'delete' c.id %}" role="button">Delete Cutomer</a>
+                    <a class="btn btn-primary" href="{% url 'edit' c.id %}" role="button">Edit Cutomer</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
